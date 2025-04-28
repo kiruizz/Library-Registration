@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 10px 10px;
+            float: left;
+        }
+        header h1 {
+            margin: 0;
+            line-height: 100px;
+            padding-left: 120px; /* Adjust padding to account for the image */
+        }
+
+        /* Navigation Styles */
+        .navbar {
+                 position: sticky;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 0px 0;
+                margin: 10px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+        nav {
+            position: sticky;
+            top: 60px; /* Adjust based on header height */
+            z-index: 999;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover, nav ul li a:active {
+            background-color: #2af16d;
+            color: white;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        form button:active {
+            background-color: #3e8e41;
+        }
+        .sideNav ul li a:hover {
+        background-color: #555;
+        color: #4CAF50;
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out, background-color 2.2s ease-in-out;
+    }
+    .sideNav ul li a :active {
+        background-color: white;
+        color: black;
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    }
+    .new-button {
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 92%; 
+            margin-top: 25px;
+        }
+
+        .new-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .new-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header style="background-color: #4CAF50;">
+        <img src="logo software.jpg" alt="Logo" style="border-radius: 50%; width: 100px; height: 100px; float: left; margin: 10px;">
+        <h1 style="color: #ffffff; font-size: 2.5rem; margin: -10px; padding-left: 120px;">Software Engineering Hub</h1>
+        <h2 style="color: #ffffff; font-size: 1.5rem; margin: 0; padding-left: 120px;">Empowering Innovation</h2>
+
+           <!-- side button1-->
+            
+           <div class="button1" style="position: absolute; align-items: end; top: 0; right: 0; height: 100%; background-color: transparent; color: white; width: 250px;" id="button1">
+            <button style="cursor: pointer; display: flex; align-items: center;justify-content: flex-end; gap: 10px; background: none; border: none; color: white; outline: none;" title="Translate" 
+             onmouseover="this.style.color = document.body.style.backgroundColor === 'black' ? 'white' : 'black';" 
+             onmouseout="this.style.color = document.body.style.backgroundColor === 'black' ? 'black' : 'white';" 
+             onfocus="this.style.outline = '2px solid #4CAF50';" 
+             onblur="this.style.outline = 'none';" 
+             onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">
+             <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                 <select class="new-button">
+                     <section>
+                         <div><i class="bi bi-translate" style="font-size: 1.5rem;"></i></div>
+                     </section>
+                     <option value="" disabled selected>Select a Language</option>
+                     <option value="en">English</option>
+                     <option value="fr">French</option>
+                     <option value="pt">Portuguese</option>
+                     <option value="中文翻译。">Chinese</option>
+                     <option value="sp">Spanish</option>
+                     <option value="gr">German</option>
+                 </select>
+             </div>
+        
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.10.0/i18next.min.js"></script>
+         <script>
+             document.getElementById('languageSelect').addEventListener('change', function () {
+                 const selectedLanguage = this.value;
+                 i18next.changeLanguage(selectedLanguage, function (err, t) {
+                     if (err) return console.error('Error loading language:', err);
+                     document.body.innerHTML = t('key', { defaultValue: document.body.innerHTML });
+                 });
+             });
+     
+             i18next.init({
+                 lng: 'en', // Default language
+                 resources: {
+                     en: { translation: { key: document.body.innerHTML } },
+                     fr: { translation: { key: 'Traduction en français.' } },
+                     pt: { translation: { key: 'Tradução em português.' } },
+                     zh: { translation: { key: '中文翻译。' } }
+                 }
+             });
+         </script>
+     </button>
+     
+       
+         </div>
+           <!-- Side Navigation Collapse Menu -->
+     <div class="sidebar" style="position: absolute; top: 0; right: 0; height: 100%; background-color: black; color: white; width: 250px; transform: translateX(100%); transition: transform 0.3s ease-in-out;" id="sideNav">
+        
+     </button>
+         <button style="background-color: #4CAF50; color: white; border: none; padding: 15px 20px; font-size: 2.5rem; cursor: pointer; position: absolute; top: 10px; left: -100px; border-radius: 5px;" onclick="toggleSideNav()" onblur="this.style.outline = 'none';">☰</button>
+         <ul style="list-style: none; padding: 20px; margin: 0;">
+             <li style="margin-bottom: 50px;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li> 
+             <li style="margin-bottom: 50px;"><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+             <li style="margin-bottom: 50px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+             <li style="margin-bottom: 50px;"><a href="services.html" style="color: white; text-decoration: none;">Services</a></li>
+             <li style="margin-bottom: 50px;"><a href="products.html" style="color: white; text-decoration: none;">Products</a></li>
+             <li style="margin-bottom: 100px; display: flex; align-items: center; gap: 10px;">
+                 <a href="login.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 20px;">
+                     <i class="bi bi-person-circle" style="font-size: 1.5rem; color: white;"></i>
+                     Login
+                 </a>
+            
+             
+                 <a href="logout.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 20px;">
+                     <i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: white;"></i>
+                     Logout
+                 </a>
+             </li>
+                   <style>
+                     #sideNav ul li a:hover {
+                         background-color: #d6d6d6;
+                         color: #4CAF50;
+                         transform: scale(1.1);
+                         transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                         border-radius: 11px; /* Make the button rounded */
+                     }
+                   </style>
+             </ul>
+     </div>
+     </header>
+     <script>
+         function toggleSideNav() {
+             const sideNav = document.getElementById('sideNav');
+             const toggleButton = document.querySelector('#sideNav button');
+             if (sideNav.style.transform === 'translateX(0%)') {
+                 sideNav.style.transition = 'transform 1.5s ease-in-out'; // Add animation
+                 sideNav.style.transform = 'translateX(100%)';
+                 toggleButton.textContent = '☰'; // Change back to menu icon
+             } else {
+                 sideNav.style.transition = 'transform 1.5s ease-in-out'; // Add animation
+                 sideNav.style.transform = 'translateX(0%)';
+                 toggleButton.textContent = 'X'; // Change to "X" for collapse
+             }
+         }
+ 
+         // Ensure the side navigation covers the entire body height
+         document.addEventListener('DOMContentLoaded', () => {
+             const sideNav = document.getElementById('sideNav');
+             sideNav.style.height = '100vh'; // Set height to cover the entire viewport
+         });
+     </script>
+   </header>
+    <!-- Navigation Section -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Products.html">Products</a></li>
+        </ul>
+        <div style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%) translateX(100%); transition: transform 1s ease-in-out, background-color 0.5s ease-in-out; background-color: white; border-radius: 5px;" id="getStartedButton">
+            <buttons style="background-color: transparent;color: black;border: none;padding-top: 15px;padding-bottom: 6px;padding-left: 10px;padding-right: 20px;font-size: 2.0rem;cursor: copy;text-decoration: none;margin: 15px;">Get Started
+       
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const getStartedButton = document.getElementById('getStartedButton');
+            setTimeout(() => {
+                getStartedButton.style.transform = 'translateY(-50%) translateX(0)';
+            }, 500); // Delay to ensure smooth slide-in effect
+            });
+        </script> 
+        </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <section style="padding: 50px 20px; background-color: #f4f4f4; text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Get in Touch</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: auto;">If you have any questions or feedback, feel free to reach out to us via:</p>
+            <div style="display: flex; justify-content: center; gap: 45px; margin-top: 30px; flex-wrap: wrap;">
+                <div style="background-color: white; margin-top: 2px; padding: 70px; padding-top: 115px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 300px;">
+                    <section style="flex: 1; min-width: 300px;">
+                        <h2>Contact Information</h2>
+                        <p><strong>Email:</strong> <a href="mailto:info@softengg.com">info@softenghub.com</a></p>
+                        <p><strong>Phone:</strong> +254 712345678</p>
+                        <p>
+                            <a href="https://www.youtube.com" target="_blank" title="YouTube"></a>
+                                <i class="bi bi-youtube" style="font-size: 24px; color: red; margin-right: 10px;"></i>
+                            </a>
+                            <a href="https://www.tiktok.com" target="_blank" title="TikTok"></a>
+                                <i class="bi bi-tiktok" style="font-size: 24px; color: black; margin-right: 10px;"></i>
+                            </a>
+                            <a href="https://www.x.com" target="_blank" title="X (formerly Twitter)"></a>
+                                <i class="bi bi-twitter" style="font-size: 24px; color: #1DA1F2; margin-right: 10px;"></i>
+                            </a>
+                        </p>
+                    </section>
+                </div>
+                <div style="background-color: white; padding: 70px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <form action="mailto:info@example.com" method="post" enctype="text/plain">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+              
+                <div style="background-color: white;margin-top: 2px; padding: 70px; padding-top: 115px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 300px;">
+                    <section style="flex: 1; min-width: 300px;">
+                        <h2>Our Location</h2>
+                        <p>P.O Box 24686 – 00502,<br>Nairobi, 00100<br>Kenya</p>
+                        <p>We are located at Africa International University, Karen, Nairobi.</p>
+                    </section>
+                </div>
+            </div>
+            </section>
+     
+
+        <style>
+            form input:hover, form textarea:hover {
+                border-color: #138af8;
+                box-shadow: 0 0 10px #001222;
+                transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            }
+            form input:focus, form textarea:focus {
+                outline: none;
+                border-color: #138af8;
+                box-shadow: 0 0 10px #001222;
+            }
+        </style>
+   <section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63819.950007965526!2d36.685793901279894!3d-1.3278704289934127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1c7133e98c7d%3A0xaabc88c784d46166!2sAfrica%20International%20University.!5e0!3m2!1sen!2ske!4v1744539939420!5m2!1sen!2ske" 
+            title="Map showing the location of Africa International University"
+            width="100%"
+            height="300"
+            style="border:0;"
+            allowfullscreen 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+     
+<body>
+    
+    <section id="contact" style="padding: 0px 0px; background-color: #f4f4f4; text-align: center;">
+        
+         <footer style="background-color: #333; color: white; text-align: center; padding: 10px 0;  bottom: 0; width: 100%;">
+        <p>Contact us at: <a href="mailto:info@softengg.com">info@softengg.com</a></p>
+            <p>&copy; 2023 Software Engineering Hub. All rights reserved.</p>
+            <div>
+                <a href="https://facebook.com" target="_blank" style="margin: 0 10px;">
+                <i class="bi bi-facebook" style="font-size: 1.5rem; color: white;"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" style="margin: 0 10px;">
+                <i class="bi bi-twitter" style="font-size: 1.5rem; color: white;"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" style="margin: 0 10px;">
+                <i class="bi bi-instagram" style="font-size: 1.5rem; color: white;"></i>
+                </a>
+            </div>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        </footer>
+       </section>
+</body>
+    
+    </main>
+
+    <!-- Footer Section -->
+
+</body>
+</html>

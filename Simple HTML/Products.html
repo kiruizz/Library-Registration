@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        .product, .product-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .product-name {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #0b1bf7;
+            margin: 15px 0;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+        }
+        .product-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-card img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Include additional styles from index.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #4CAF50;
+            color:#333;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 10px 10px;
+            float: left;
+        }
+        header h1 {
+            margin: 0;
+            line-height: 100px;
+            padding-left: 120px; /* Adjust padding to account for the image */
+        }
+      
+        /* Navigation Styles */
+        .navbar {
+                 position: sticky;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 0px 0;
+                margin: 10px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+      
+        nav ul :visited {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .nav ul li a:visited {
+            text-decoration: none;
+            background-color: #4CAF50;
+        }
+        nav ul li a:hover, nav ul li a:active {
+            background-color: #2af16d;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+          
+        .product-card h3 {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .product-card p {
+            padding: 0 1rem;
+            color: #666;
+        }
+        .product-card button {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #0078d7;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #005bb5;
+        }
+        .sideNav ul li a:hover {
+            background-color: #555;
+            color: #4CAF50;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out, background-color 2.2s ease-in-out;
+        }
+        .sideNav ul li a :active {
+            background-color: white;
+            color: black;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        .new-button {
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 92%; 
+            margin-top: 25px;
+        }
+
+        .new-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .new-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <meta name="description" content="Explore our range of software products including project management tools, cloud storage, AI analytics, and more.">
+    <meta name="keywords" content="Software Engineering, Project Management, Cloud Storage, AI Analytics, Cybersecurity">
+    <meta name="author" content="Software Engineering Hub">
+    
+</head>
+<body class="container" style="max-width: 100%; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+    <!-- Import header from index.html -->
+    <header style="background-color: #4CAF50;">
+        <img src="logo software.jpg" alt="Logo" style="border-radius: 50%; width: 100px; height: 100px; float: left; margin: 10px;">
+        <h1 style="color: #ffffff; font-size: 2.5rem; margin: -10px; padding-left: 120px;">Software Engineering Hub</h1>
+        <h2 style="color: #ffffff; font-size: 1.5rem; margin: 0; padding-left: 120px;">Empowering Innovation</h2>
+
+           <!-- side button1-->
+            
+     <div class="button1" style="position: absolute; align-items: end; top: 0; right: 0; height: 100%; background-color: transparent; color: white; width: 250px;" id="button1">
+   
+        <div class="button1" style="position: absolute; align-items: end; top: 0; right: 0; height: 100%; background-color: transparent; color: white; width: 250px;" id="button1">
+            <button style="cursor: pointer; display: flex; align-items: center;justify-content: flex-end; gap: 10px; background: none; border: none; color: white; outline: none;" title="Translate" 
+             onmouseover="this.style.color = document.body.style.backgroundColor === 'black' ? 'white' : 'black';" 
+             onmouseout="this.style.color = document.body.style.backgroundColor === 'black' ? 'black' : 'white';" 
+             onfocus="this.style.outline = '2px solid #4CAF50';" 
+             onblur="this.style.outline = 'none';" 
+             onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">
+             <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                 <select class="new-button">
+                     <section>
+                         <div><i class="bi bi-translate" style="font-size: 1.5rem;"></i></div>
+                     </section>
+                     <option value="" disabled selected>Select a Language</option>
+                     <option value="en">English</option>
+                     <option value="fr">French</option>
+                     <option value="pt">Portuguese</option>
+                     <option value="中文翻译。">Chinese</option>
+                     <option value="sp">Spanish</option>
+                     <option value="gr">German</option>
+                 </select>
+             </div>
+        
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.10.0/i18next.min.js"></script>
+         <script>
+             document.getElementById('languageSelect').addEventListener('change', function () {
+                 const selectedLanguage = this.value;
+                 i18next.changeLanguage(selectedLanguage, function (err, t) {
+                     if (err) return console.error('Error loading language:', err);
+                     document.body.innerHTML = t('key', { defaultValue: document.body.innerHTML });
+                 });
+             });
+     
+             i18next.init({
+                 lng: 'en', // Default language
+                 resources: {
+                     en: { translation: { key: document.body.innerHTML } },
+                     fr: { translation: { key: 'Traduction en français.' } },
+                     pt: { translation: { key: 'Tradução em português.' } },
+                     zh: { translation: { key: '中文翻译。' } }
+                 }
+             });
+         </script>
+     </button>
+     
+       
+         </div>
+         <body>
+            <section>
+            <!-- Side Navigation Collapse Menu -->
+     <div class="sidebar" style="position: absolute; top: 0; right: 0; height: 100%; background-color: black; color: white; width: 250px; transform: translateX(100%); transition: transform 0.3s ease-in-out;" id="sideNav">
+        
+     </button>
+         <button style="background-color: #4CAF50; color: white; border: none; padding: 15px 20px; font-size: 2.5rem; cursor: pointer; position: absolute; top: 10px; left: -100px; border-radius: 5px;" onclick="toggleSideNav()" onblur="this.style.outline = 'none';">☰</button>
+         <ul style="list-style: none; padding: 20px; margin: 0;">
+             <li style="margin-bottom: 50px;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li> 
+             <li style="margin-bottom: 50px;"><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+             <li style="margin-bottom: 50px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+             <li style="margin-bottom: 50px;"><a href="services.html" style="color: white; text-decoration: none;">Services</a></li>
+             <li style="margin-bottom: 50px;"><a href="products.html" style="color: white; text-decoration: none;">Products</a></li>
+             <li style="margin-bottom: 100px; display: flex; align-items: center; gap: 10px;">
+                 <a href="login.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 20px;">
+                     <i class="bi bi-person-circle" style="font-size: 1.5rem; color: white;"></i>
+                     Login
+                 </a>
+            
+             
+                 <a href="logout.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 20px;">
+                     <i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: white;"></i>
+                     Logout
+                 </a>
+             </li>
+                   <style>
+                     #sideNav ul li a:hover {
+                         background-color: #d6d6d6;
+                         color: #4CAF50;
+                         transform: scale(1.1);
+                         transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                         border-radius: 11px; /* Make the button rounded */
+                     }
+                   </style>
+             </ul>
+     </div>
+     </header>
+     <script>
+         function toggleSideNav() {
+             const sideNav = document.getElementById('sideNav');
+             const toggleButton = document.querySelector('#sideNav button');
+             if (sideNav.style.transform === 'translateX(0%)') {
+                 sideNav.style.transition = 'transform 1.5s ease-in-out'; // Add animation
+                 sideNav.style.transform = 'translateX(100%)';
+                 toggleButton.textContent = '☰'; // Change back to menu icon
+             } else {
+                 sideNav.style.transition = 'transform 1.5s ease-in-out'; // Add animation
+                 sideNav.style.transform = 'translateX(0%)';
+                 toggleButton.textContent = 'X'; // Change to "X" for collapse
+             }
+         }
+ 
+         // Ensure the side navigation covers the entire body height
+         document.addEventListener('DOMContentLoaded', () => {
+             const sideNav = document.getElementById('sideNav');
+             sideNav.style.height = '100vh'; // Set height to cover the entire viewport
+         });
+     </script>
+   </header>
+    <!-- Navigation Section -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Products.html">Products</a></li>
+        </ul>
+        <div style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%) translateX(100%); transition: transform 1s ease-in-out, background-color 0.5s ease-in-out; background-color: white; border-radius: 5px;" id="getStartedButton">
+            <buttons style="background-color: transparent;color: black;border: none;padding-top: 15px;padding-bottom: 6px;padding-left: 10px;padding-right: 20px;font-size: 2.0rem;cursor: copy;text-decoration: none;margin: 15px;">Get Started
+       
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const getStartedButton = document.getElementById('getStartedButton');
+            setTimeout(() => {
+                getStartedButton.style.transform = 'translateY(-50%) translateX(0)';
+            }, 500); // Delay to ensure smooth slide-in effect
+            });
+        </script> 
+        </button>
+        </div>
+    </nav>
+</section>
+   
+</body>
+
+    <div style="flex: 1; background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'); background-size: cover; background-attachment: fixed; background-position: center; padding: 10px 10px; align-items: center; justify-content: center; ">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: whitesmoke;">Our Products</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; color: whitesmoke;">Explore the wide range of products we offer to meet your needs.</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-right: 20px;">
+            <button style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; transition: transform 0.3s;">
+            Get Started
+            </button>
+            <button style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; transition: transform 0.3s;">
+            Login
+            </button>
+            </div>
+            <style>
+            button:hover {
+            transform: scale(1.1);
+            }
+            </style>
+        </div>
+</div>
+
+
+    <div id="product-list" class="productsContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 6px; background-color: transparent;">
+        <div style="text-align: center; align-content: center; padding: 20px;">
+       <div class="product-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 6px;">
+            <!-- Product cards will be rendered here -->
+        <script>
+
+            const products = [
+                {
+                    name: "Project Management Software",
+                    description: "Streamline your team's workflow with our intuitive project management tool.",
+                    price: "$49.99/month",
+                    image: "images/Project management software.png"
+                    <!-- Removed the invalid line -->
+                },
+                {
+                    name: "Cloud Storage Solution",
+                    description: "Secure and scalable cloud storage for all your business needs.",
+                    price: "$99.99/year",
+                    image: "images/Cloud Storage Solution.png"
+                },
+                {
+                    name: "AI-Powered Analytics",
+                    description: "Gain insights into your data with our cutting-edge AI analytics platform.",
+                    price: "$199.99/month",
+                    image: "images/AI-Powered Analytics.png"
+                },
+                {
+                    name: "Custom Hardware Kits",
+                    description: "Build your own hardware solutions with our customizable kits.",
+                    price: "$299.99",
+                    image: "images/Custom Hardware Kits.png"
+                },
+                {
+                    name: "Cybersecurity Suite",
+                    description: "Protect your business with our comprehensive cybersecurity tools.",
+                    price: "$149.99/year",
+                    image: "images/Cybersecurity Suite.png"
+                },
+                {
+                    name: "E-Commerce Platform",
+                    description: "Launch your online store with our all-in-one e-commerce solution.",
+                    price: "$79.99/month",
+                    image: "images/E-Commerce Platform.png"
+                },
+                {
+                    name: "CRM Software",
+                    description: "Manage customer relationships effectively with our CRM tool.",
+                    price: "$59.99/month",
+                    image: "images/CRM Software.png"
+                },
+                {
+                    name: "Mobile App Builder",
+                    description: "Create stunning mobile apps with our easy-to-use builder.",
+                    price: "$99.99/year",
+                    image: "images/Mobile App Builder.png"
+                },
+                {       
+                    name: "Data Backup Solution",
+                    description: "Keep your data safe with our reliable backup solution.",
+                    price: "$49.99/year",
+                    image: "images/Data Backup Solution.png"
+                },
+                {
+                    name: "Virtual Reality Software",
+                    description: "Experience immersive virtual reality with our software.",
+                    price: "$199.99",
+                    image: "images/Virtual Reality Software.png"
+                },
+                {
+                    name: "Web Development",
+                    description: "Build modern web applications with our powerful framework.",
+                    price: "$149.99",
+                    image: "images/Web Development Framework2.png"
+                },
+                {
+                    name: "AI Chatbot",
+                    description: "Enhance customer support with our AI-powered chatbot.",
+                    price: "$79.99/month",
+                    image: "images/AI Chatbot.png"
+                }
+            ];
+    
+            function renderProducts() {
+            return products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='placeholder.jpg'">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p><strong>${product.price}</strong></p>
+                    <button>Add to Cart</button>
+                </div>
+            `).join('');
+        }
+            document.getElementById('product-list').innerHTML = renderProducts();
+    
+            // Add hover effect for zoom-in
+            const style = document.createElement('style');
+            style.textContent = `
+                .product-card:hover {
+                    transform: scale(1.05);
+                    box-shadow: 10 10px 12px rgba(0, 0, 0, 0.2);
+                }
+                .product-card img:hover {
+                    transform: scale(1.1);
+                }
+            `;
+            document.head.appendChild(style);
+    
+            // System Test: Check if products are rendered
+            function testProductRendering() {
+                const productList = document.getElementById('product-list');
+                if (productList && productList.children.length > 0) {
+                    console.log('System Test Passed: Products are rendered correctly.');
+                } else {
+                    console.error('System Test Failed: Products are not rendered.');
+                }
+            }
+    
+            // Run the test after rendering products
+            window.onload = () => {
+                testProductRendering();
+            };
+                  // Display products when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('productsContainer').innerHTML = renderProducts();
+        });
+    </script>
+   <div id="productsContainer"></div>
+        </div>
+        </div>
+      </section>
+     </div>
+     </body>
+
+ 
+<div>
+        
+   
+<body>
+ 
+    <section id="contact" style="padding: 0px 0px; background-color: #f4f4f4; text-align: center;">
+        
+        <footer style="background-color: #333; color: white; text-align: center; padding: 10px 0;  bottom: 0; width: 100%;">
+       <p>Contact us at: <a href="mailto:info@softengg.com">info@softengg.com</a></p>
+           <p>&copy; 2023 Software Engineering Hub. All rights reserved.</p>
+           <div>
+               <a href="https://facebook.com" target="_blank" style="margin: 0 10px;">
+               <i class="bi bi-facebook" style="font-size: 1.5rem; color: white;"></i>
+               </a>
+               <a href="https://twitter.com" target="_blank" style="margin: 0 10px;">
+               <i class="bi bi-twitter" style="font-size: 1.5rem; color: white;"></i>
+               </a>
+               <a href="https://instagram.com" target="_blank" style="margin: 0 10px;">
+               <i class="bi bi-instagram" style="font-size: 1.5rem; color: white;"></i>
+               </a>
+           </div>
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+       </footer>
+      </section>
+</body>
+ 
+</div>
+</section> 
+</html>
