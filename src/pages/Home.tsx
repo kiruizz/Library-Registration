@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpenIcon } from 'lucide-react';
 import TimeOutModal from '../components/TimeOutModal';
 const Home = () => {
   const [isTimeOutModalOpen, setTimeOutModalOpen] = useState(false);
@@ -11,11 +10,11 @@ const Home = () => {
     // time: string;
     [key: string]: any;
   }
-  const [timeOutData, setTimeOutData] = useState<TimeOutData | null>(null);
+ 
 
   const handleTimeOutSubmit = (data: TimeOutData): void => {
     console.log('Time out submitted:', data);
-    setTimeOutData(data);
+   
     setTimeOutModalOpen(false);
     setTimeOutSuccess(true);
   };
